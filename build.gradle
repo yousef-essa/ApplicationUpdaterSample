@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'io.yousefessa'
+version '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+processResources {
+    filesMatching("**version.properties") {
+        setDuplicatesStrategy(DuplicatesStrategy.INHERIT)
+        expand(
+                'version': project.version.toString()
+        )
+    }
+}
